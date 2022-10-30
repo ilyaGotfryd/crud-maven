@@ -25,7 +25,7 @@ We are going to use https://repl.it to run all of the practice exercises for thi
   - for range(0, n)
   - "for each"
   - enumerate
-- case match
+- case match (not available in Python 3.8 from repl.it)
 ### Collections
 - tuple
   - unrolling tuple
