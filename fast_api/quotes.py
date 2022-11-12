@@ -1,7 +1,6 @@
-# regex parsing string
-# (?P<key>\d{1,3})\.\s.(?P<phrase>([A-Za-z\'\s,\.:]|’)*).\n—(?P<author>[^,\n]*)
+import re
 
-"""
+quotes = """
 1. “I'm sick of following my dreams, man. I'm just going to ask where they're going and hook up with ’em later."
 —Mitch Hedberg
 
@@ -318,3 +317,29 @@ Becky: “Which one is 'mute'?”
 —Zach Galifianakis
 
 """
+
+quotes_dict = {}
+
+def parse_quotes():
+  quote_parser = re.compile(r"(?P<key>\d{1,3})\.\s.(?P<phrase>([A-Za-z\'\s,\.:]|’)*).")
+  # —(?P<speaker>[\w ]*)(\((?P<actor>[\w ]*)\))?(, (?P<piece>[\w .’]*))?
+  author_parser = re.compile(r"—(?P<speaker>[\w ]*)(\((?P<actor>[\w ]*)\))?(, (?P<piece>[\w .’]*))?")
+  
+  key = None
+  for line in quotes.split("\n"):
+    # print(line)
+    qp = quote_parser.match(line)
+    ap = author_parser.match(line)
+    if qp is not None:
+      key = qp.group('key')
+      phrase = qp.group('phrase')
+      quotes_dict[int(key)] = {'id':key, 'quote': phrase}
+    if ap is not None:
+      quotes_dict[int(key)]['speaker'] = ap.group('speaker')
+      quotes_dict[int(key)]['actor'] = ap.group('actor')
+      quotes_dict[int(key)]['piece'] = ap.group('piece')
+    
+def get_quote(id:int):
+  if not quotes_dict:
+    parse_quotes()
+  return quotes_dict.get(id, None)
