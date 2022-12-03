@@ -2,9 +2,9 @@
 
 ## Getting started
 - install FastAPI
-```
-In repl.it on the left side find "packages" icon. Click it and search for "fastapi". Install fastapi package
-```
+
+In repl.it on the left side find "packages" icon. ![packages_icon](../images/packages_btn.png) Click it and search for "fastapi". Install fastapi package
+
 - install uvicorn
 
 `uvicorn` is a server and not a package so we need to use a different tool to install it. We will use a different package manager also available in this system called `PIP` which is default PyPi package manager tool. Navigate to 
