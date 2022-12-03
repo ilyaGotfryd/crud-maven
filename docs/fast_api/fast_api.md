@@ -3,7 +3,7 @@
 ## Getting started
 - install FastAPI
 
-In repl.it on the left side find "packages" icon. ![packages_icon](../images/packages_btn.png) Click it and search for "fastapi". Install fastapi package
+In repl.it on the left side find "packages" icon. ![packages_icon](https://media.githubusercontent.com/media/ilyaGotfryd/crud-maven/main/docs/images/packages_btn.png) Click it and search for "fastapi". Install fastapi package
 
 - install uvicorn
 
