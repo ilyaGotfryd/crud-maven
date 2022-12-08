@@ -1,4 +1,5 @@
 import re
+from typing import Dict
 
 quotes = """
 1. “I'm sick of following my dreams, man. I'm just going to ask where they're going and hook up with ’em later."
@@ -321,7 +322,7 @@ Becky: “Which one is 'mute'?”
 quotes_dict = {}
 
 def parse_quotes():
-  quote_parser = re.compile(r"(?P<key>\d{1,3})\.\s.(?P<phrase>([A-Za-z\'\s,\.:]|’)*).")
+  quote_parser = re.compile(r"(?P<key>\d{1,3})\.\s.(?P<phrase>([A-Za-z\'\s,\.:‘\?’]|’)*).")
   # —(?P<speaker>[\w ]*)(\((?P<actor>[\w ]*)\))?(, (?P<piece>[\w .’]*))?
   author_parser = re.compile(r"—(?P<speaker>[\w ]*)(\((?P<actor>[\w ]*)\))?(, (?P<piece>[\w .’]*))?")
   
@@ -333,13 +334,13 @@ def parse_quotes():
     if qp is not None:
       key = qp.group('key')
       phrase = qp.group('phrase')
-      quotes_dict[int(key)] = {'id':key, 'quote': phrase}
+      quotes_dict[int(key)] = {'id':int(key), 'quote': phrase}
     if ap is not None:
       quotes_dict[int(key)]['speaker'] = ap.group('speaker')
       quotes_dict[int(key)]['actor'] = ap.group('actor')
       quotes_dict[int(key)]['piece'] = ap.group('piece')
     
-def get_quote(id:int):
+def get_quote(id:int) -> Dict:
   if not quotes_dict:
     parse_quotes()
   return quotes_dict.get(id, None)

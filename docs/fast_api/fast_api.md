@@ -47,8 +47,72 @@ uvicorn fast_api.main:app --reload --host 0.0.0.0
 The browser window will open on the right and will give you the base URL for your publically available hosted service. Copy that URL and paste it into a new browser window and append `/docs` to it. After letting it reload for a little bit you will see sweager documentation for your newly minted API. Let's explore.
 
 ---
-## Password suggestion endpoints
+## Let's get some funny quotes from a large list
 - **[GET]** pass in ID as part of URL get a quote and author back
 
+First let's define the `Quote` class we will be fetching.
+
+```Python
+from typing import Optional
+from pydantic import BaseModel
+
+class Quote(BaseModel):
+  id: int
+  quote: str
+  speaker: Optional[str]
+  actor: Optional[str]
+  piece: Optional[str]
+
+```
+
 - **[POST]** generate pasword {length, special_characters}
+```python
+from fastapi import FastAPI
+import secrets
+
+app = FastAPI()
+
+@app.post("/generate-credentials")
+async def generate_credentials():
+    # Generate a random username and password
+    username = secrets.token_urlsafe(16)
+    password = secrets.token_urlsafe(16)
+
+    # Store the username and password in the Repl.it key-value data store
+    data = {
+        "username": username,
+        "password": password
+    }
+    url = "https://repl.it/data/put/{username}/{key}"
+    requests.put(url, json=data)
+
+    # Return the username and password to the client
+    return {"username": username, "password": password}
+```
 - **[POST]** validate password fits rules {password: str, length:int, upper_case:bool, special_chars:bool, lower_case:bool} 
+```python
+from fastapi import FastAPI
+from fastapi_security import OAuth2PasswordBearer
+
+app = FastAPI()
+
+# Create an OAuth2PasswordBearer security scheme
+security = OAuth2PasswordBearer(tokenUrl="token")
+
+@app.post("/verify-credentials")
+async def verify_credentials(username: str, password: str):
+    # Retrieve the username and password from the Repl.it key-value data store
+    url = "https://repl.it/data/get/{username}/{key}"
+    response = requests.get(url)
+    data = response.json()
+
+    # Verify the password
+    if data["password"] == password:
+        # Generate and return an access token
+        token = security.create_access_token(data={"sub": username})
+        return {"access_token": token}
+    else:
+        # Return an error if the password is incorrect
+        raise HTTPException(status_code=401, detail="Incorrect password")
+
+```
