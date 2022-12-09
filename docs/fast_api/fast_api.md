@@ -116,3 +116,5 @@ async def verify_credentials(username: str, password: str):
         raise HTTPException(status_code=401, detail="Incorrect password")
 
 ```
+
+**TODO: Secure the quotes endpoint**exclide 
