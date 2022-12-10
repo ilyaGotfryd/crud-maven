@@ -11,43 +11,16 @@ We are going to use https://repl.it to run all of the practice exercises for thi
 
 ## Python basics [===>](./basics/basics.md)
 ### Data
-- variables
-- strings
-  - multiline strings
-  - fstrings
-- date
-  - date math
-- install mypy
-  - typehint example
+Here we will look at all things variables and types.
 ### Flow control 
-- if
-- loops
-  - for range(0, n)
-  - "for each"
-  - enumerate
-- case match (not available in Python 3.8 from repl.it)
+Conditionals and loops rule this section. First intro to Python scoping.
 ### Collections
-- tuple
-  - unrolling tuple
-- list
-  - list comprehansion
-  - list splicing `test[start:end:step]`
-  - conditional list comprehansion /filtering
-- dictionary
-  - dictionary comprehansion
-- set
-  - set math
+This is one of Python's native superpowers. Datamunging for the win!
 # Functions, modules, and decorators [===>](./funcitons/funcitons.md)
-- functions
-  - sturcture and type hints
-  - import standard library modules
-  - build a password generator function
-- decorators
-  - review basic AOP conepts
-  - import performance decorator
-  - apply performance decorator
-  - pass in different params into function
-  - pass different params into decorator
+## functions
+  How are the structured, playing with arguments, dealing with imports, Python scope strikes again. Let's practice some Python Fu.
+## decorators
+  What are they, where they come from, what do the look like on the inside.
 # Pydantic [===>](./pydantic/pydantic.md)
 ## Basics, serialization, deserialization
 ## Custom validation

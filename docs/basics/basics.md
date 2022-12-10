@@ -1,7 +1,7 @@
 # Python basics
 ## Dev Environment [==>](./dev_envrionment/dev_environment.md)
 Repl.it a web based development environment that is capable of executing your code in real time and host your web apps at debug time.
-## Data
+## Data [==>](./data/data.md)
 - variables
 - strings
   - multiline strings
@@ -11,7 +11,7 @@ Repl.it a web based development environment that is capable of executing your co
 - install mypy
   - typehint example
 
-## Flow control
+## Flow control [==>](./flow_control/flow_control.md)
 - if
 - loops
   - for range(0, n)
@@ -19,7 +19,7 @@ Repl.it a web based development environment that is capable of executing your co
   - enumerate
 - case match (not available in Python 3.8 from repl.it)
 
-## Collections
+## Collections [==>](./collections/collections.md)
 - tuple
   - unrolling tuple
 - list

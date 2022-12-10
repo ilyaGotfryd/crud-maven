@@ -1,0 +1,10 @@
+- tuple
+  - unrolling tuple
+- list
+  - list comprehansion
+  - list splicing `test[start:end:step]`
+  - conditional list comprehansion /filtering
+- dictionary
+  - dictionary comprehansion
+- set
+  - set math
