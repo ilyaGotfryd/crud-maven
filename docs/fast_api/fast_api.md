@@ -117,4 +117,4 @@ async def verify_credentials(username: str, password: str):
 
 ```
 
-**TODO: Secure the quotes endpoint**exclide 
+**TODO: Secure the quotes endpoint** 
