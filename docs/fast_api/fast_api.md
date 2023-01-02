@@ -90,6 +90,7 @@ async def generate_credentials():
     return {"username": username, "password": password}
 ```
 - **[POST]** validate password fits rules {password: str, length:int, upper_case:bool, special_chars:bool, lower_case:bool} 
+
 ```python
 from fastapi import FastAPI
 from fastapi_security import OAuth2PasswordBearer
@@ -114,7 +115,6 @@ async def verify_credentials(username: str, password: str):
     else:
         # Return an error if the password is incorrect
         raise HTTPException(status_code=401, detail="Incorrect password")
-
 ```
 
 **TODO: Secure the quotes endpoint** 

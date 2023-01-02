@@ -34,7 +34,7 @@ Let's try fiew other combinations.
 ## Basics, serialization, deserialization
 We created a `User` model from pydantic `BaseModel` and we autmatically got type checking and required validation. Let's run some tests to see what JSON serialization and deserialization looks like.
 
-`test/service.py`
+`test/test_service.py`
 ```python
 def test_user_json():
   user = User(username='short', password='simple')
@@ -84,11 +84,11 @@ Let's introduce some test coverage to make sure that this works.
 ```python
 from fast_api import Service, User
 
-def test_user_json():
-  user = User(username='short', password='simple')
-  assert user.json() == '{"username": "short", "password": "simple"}'
-  another_user = User.parse_raw('{"username": "ninja", "password": "secure"}')
-  assert another_user == User(username="ninja",password="secure")
+def test_add_user_check_pwd():
+  service = Service()
+  user = User(username="special", password="secret")
+  service.add_user(user)
+  assert service.validate_password(user)
 ```
 ## Custom validation
 
