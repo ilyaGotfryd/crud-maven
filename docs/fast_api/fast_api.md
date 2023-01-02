@@ -65,6 +65,23 @@ class Quote(BaseModel):
 
 ```
 
+Then get quote by id that we will pass in URL as a path parameter
+
+- **[GET]** get quote by ID
+```python
+from fast_api.quotes import get_quote
+
+...
+
+@app.get("/quotes/{quote_id}")
+def get_quote_by_id(item_id: int) -> Quote:
+  quote_dict = get_quote(item_id)
+  return Quote(**quote_dict)
+```
+
+Let's fetch some quotes and see how it plays out.
+
+## 
 - **[POST]** generate pasword {length, special_characters}
 ```python
 from fastapi import FastAPI

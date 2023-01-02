@@ -6,7 +6,12 @@
 # return password
 # run 3 times and print the output every time
 
+legal_chars = [char(i) for i in range(ord('a'), ord('z')+1)]
+
+def generate_credentials():
+    print(legal_chars)
 # import logging decorator
 # decorate the password function
 # run and see the output
 
+generate_credentials()
