@@ -69,3 +69,21 @@ print(z_n_double)
 ```
 - set
   - set math
+
+```python
+print('+'*20, 'set')
+# set
+empty_set = set()
+single_set = {'test'}
+print(single_set, type(single_set))
+some_set = {'vase',1,4,3,2,5,1,7,6,3}
+print(some_set, type(some_set))
+# set math
+first_set = {1,3,5,7,8,9}
+second_set = {2,4,6,8,10}
+print('or ', first_set | second_set)
+print('and ', first_set & second_set)
+print( 'xor', first_set ^ second_set)
+print('subtract', first_set - second_set)
+print('subtract', second_set - first_set)
+```
