@@ -124,3 +124,7 @@ def test_validation_fail():
         user = User(username="this", password="will fail")
     assert str(err) == 'Password did not match requirements'
 ```
+
+---
+
+Next [== Fast API Basics ==>](../fast_api/fast_api.md)

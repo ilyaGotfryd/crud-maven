@@ -38,5 +38,6 @@ test/test_service.py .                                                         [
 ```
 Now that we got a basic test working let's return to Pydantic.
 
+---
 
-[Back to Pydantic](../pydantic/pydantic.md)
+Next [== Pydantic ==>](../pydantic/pydantic.md)

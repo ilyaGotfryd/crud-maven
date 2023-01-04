@@ -87,3 +87,7 @@ print( 'xor', first_set ^ second_set)
 print('subtract', first_set - second_set)
 print('subtract', second_set - first_set)
 ```
+
+---
+
+Next [== Functions ==>](../../functions/functions.md)
