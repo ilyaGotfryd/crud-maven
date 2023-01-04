@@ -32,10 +32,3 @@ print(len(username))
 print(password)
 print(len(password))
 ```
-
-## decorators
-- review basic AOP conepts
-- import performance decorator
-- apply performance decorator
-- pass in different params into function
-- pass different params into decorator

@@ -21,6 +21,8 @@ This is one of Python's native superpowers. Datamunging for the win!
   How are the structured, playing with arguments, dealing with imports, Python scope strikes again. Let's practice some Python Fu.
 ## decorators
   What are they, where they come from, what do the look like on the inside.
+# Testing [===>](./testing/pytest_basics.md)
+  Let's create basic pytest setup to develop our 
 # Pydantic [===>](./pydantic/pydantic.md)
 ## Basics, serialization, deserialization
 ## Custom validation

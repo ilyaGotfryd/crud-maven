@@ -46,3 +46,7 @@ pip install mypy
 - typehint example
 
 in data.py init an int variable and assign 
+
+---
+
+Next [== Flow Control ==>](../flow_control/flow_control.md)

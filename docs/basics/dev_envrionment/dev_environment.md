@@ -13,3 +13,7 @@
   ```python
   print("Look ma how I Python")
   ```
+  
+  ---
+  
+  Next [== Data ==>](../data/data.md)
