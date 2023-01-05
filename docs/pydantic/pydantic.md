@@ -86,16 +86,22 @@ from fast_api import Service, User
 
 def test_add_user_check_pwd():
   service = Service()
-  user = User(username="special", password="secret")
+  user = User(username="special", password="Secret")
   service.add_user(user)
   assert service.validate_password(user)
+
+def test_user_json():
+  user = User(username='short', password='Simple')
+  assert user.json() == '{"username": "short", "password": "Simple"}'
+  another_user = User.parse_raw('{"username": "ninja", "password": "sEcure"}')
+  assert another_user == User(username="ninja",password="sEcure")
 ```
 ## Custom validation
 
 Let's introduce password validation to make things difficult.
 
 ```python
-from pydantic import BaseModel, ValidationError, validator
+from pydantic import BaseModel, validator
 import re
 password_matcher = re.compile(r"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")
 
@@ -106,11 +112,11 @@ class User(BaseModel):
   @validator('password')
   def validate_pwd(cls, v):
     if not password_matcher.match(v):
-      return ValidationError('Password did not match requirements')
+      raise ValueError('Password did not match requirements')
     return v
 ```
 
-At this point if you run `pytest test` your tests will fail with validation error.
+At this point if you run `pytest test` your tests will fail with Value error.
 
 Let's fix them and create validation test.
 
@@ -120,11 +126,38 @@ import pytest
 from pydantic import ValidationError
 
 def test_validation_fail():
-    with putest.raises(ValidationError) as err:
+    with putest.raises(ValueError) as err:
         user = User(username="this", password="will fail")
-    assert str(err) == 'Password did not match requirements'
+    assert 'Password did not match requirements' in str(err.value)
 ```
 
+Fix remainder of the tests for final result
+`test/test_service.py`
+```python
+from fast_api.service import Service, User
+from pydantic import ValidationError
+import pytest
+
+def test_the_truth():
+  assert True
+
+def test_add_user_check_pwd():
+  service = Service()
+  user = User(username="special", password="Secret123!")
+  service.add_user(user)
+  assert service.validate_password(user)
+
+def test_user_json():
+  user = User(username='short', password='Simple$5')
+  assert user.json() == '{"username": "short", "password": "Simple$5"}'
+  another_user = User.parse_raw('{"username": "ninja", "password": "sEcure123!"}')
+  assert another_user == User(username="ninja",password="sEcure123!")
+
+def test_validation_fail():
+  with pytest.raises(ValueError) as err:
+    user = User(username="this", password="will fail")
+  assert 'Password did not match requirements' in str(err.value)
+```
 ---
 
 Next [== Fast API Basics ==>](../fast_api/fast_api.md)

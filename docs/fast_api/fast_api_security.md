@@ -7,49 +7,36 @@ import secrets
 
 app = FastAPI()
 
-@app.post("/generate-credentials")
-async def generate_credentials():
-    # Generate a random username and password
-    username = secrets.token_urlsafe(16)
-    password = secrets.token_urlsafe(16)
+@app.get("/user")
+def create_user() -> User:
+  data = {"username":generate_secret(),
+          "password": generate_secret(is_password = True)}
+  user = User(**data)
+  service = Service()
+  service.add_user(user)
+  return user
 
-    # Store the username and password in the Repl.it key-value data store
-    data = {
-        "username": username,
-        "password": password
-    }
-    url = "https://repl.it/data/put/{username}/{key}"
-    requests.put(url, json=data)
-
-    # Return the username and password to the client
-    return {"username": username, "password": password}
+@app.post("/login")
+def login(validate_user: User):
+  service = Service()
+  if service.validate_user(validate_user):
+    return "shrug"
 ```
-- **[POST]** validate password fits rules {password: str, length:int, upper_case:bool, special_chars:bool, lower_case:bool} 
+- **[POST]** login accepting user as login credentials
 
 ```python
 from fastapi import FastAPI
-from fastapi_security import OAuth2PasswordBearer
 
 app = FastAPI()
 
-# Create an OAuth2PasswordBearer security scheme
-security = OAuth2PasswordBearer(tokenUrl="token")
-
-@app.post("/verify-credentials")
-async def verify_credentials(username: str, password: str):
-    # Retrieve the username and password from the Repl.it key-value data store
-    url = "https://repl.it/data/get/{username}/{key}"
-    response = requests.get(url)
-    data = response.json()
-
-    # Verify the password
-    if data["password"] == password:
-        # Generate and return an access token
-        token = security.create_access_token(data={"sub": username})
-        return {"access_token": token}
-    else:
-        # Return an error if the password is incorrect
-        raise HTTPException(status_code=401, detail="Incorrect password")
+@app.post("/login")
+def login(validate_user: User):
+  service = Service()
+  if service.validate_user(validate_user):
+    return "shrug"
+  else:
+    # Return an error if the password is incorrect
+    raise HTTPException(status_code=401, detail="Failed to login")
 ```
 
 **TODO: Secure the quotes endpoint** 

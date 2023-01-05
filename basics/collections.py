@@ -1,3 +1,6 @@
+# NOTE: add to main.py
+# from basics import collections
+
 # tuple
 # unrolling tuple
 

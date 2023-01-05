@@ -1,3 +1,6 @@
+# NOTE: add to main.py
+# from functions import functions
+
 # print Greetings to you <name>
 # wrap it in function - SCOPE with tab!
 # pass in a name - type hints
@@ -10,3 +13,6 @@
 
 # create function that takes in 2 numbers and returns tuple (sum, diff, multiple)
 # unroll the result
+
+# from functions.decorator_sample import performanceLogger
+# ------ apply decorators to resulting greeting function and try changing parameters on the decorator to see results ---
