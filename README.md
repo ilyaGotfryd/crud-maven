@@ -1,6 +1,8 @@
 # crud-maven
 Python - beginner to CRUD maven. Talk initially prepared for CodeMash 2023 pre-compiler session
 
+[==> Github Pages==>](https://ilyagotfryd.github.io/crud-maven/)
+
 ## Getting started
 We are going to use https://repl.it to run all of the practice exercises for this course. Click the link below to launch this repo using the web based IDE.
 <hr /><br/>
