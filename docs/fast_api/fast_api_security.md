@@ -45,6 +45,8 @@ def login(validate_user: User):
 
 **TODO: Secure the quotes endpoint** 
 
+[security basics] (https://fastapi.tiangolo.com/tutorial/security/first-steps/)
+
 ---
 
 Back [== HOME ==>](../README.md)
