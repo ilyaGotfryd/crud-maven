@@ -1,7 +1,9 @@
 # Fat API Security
 
 - **[POST]** generate pasword {length, special_characters}
+
 ```python
+
 from fastapi import FastAPI
 import secrets
 
@@ -22,9 +24,11 @@ def login(validate_user: User):
   if service.validate_user(validate_user):
     return "shrug"
 ```
+
 - **[POST]** login accepting user as login credentials
 
 ```python
+
 from fastapi import FastAPI
 
 app = FastAPI()
