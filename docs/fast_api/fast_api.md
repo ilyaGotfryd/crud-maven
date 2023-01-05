@@ -52,7 +52,7 @@ The browser window will open on the right and will give you the base URL for you
 
 First let's define the `Quote` class we will be fetching.
 
-```Python
+```python
 from typing import Optional
 from pydantic import BaseModel
 
@@ -68,6 +68,7 @@ class Quote(BaseModel):
 Then get quote by id that we will pass in URL as a path parameter
 
 - **[GET]** get quote by ID
+
 ```python
 from fast_api.quotes import get_quote
 
