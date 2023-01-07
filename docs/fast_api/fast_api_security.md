@@ -1,4 +1,9 @@
-# Fat API Security
+# Fast API Security
+
+we will need `python-multipart` to support parts of FastAPI security framework.
+```bash
+pip install python-multipart
+```
 
 - **[POST]** generate pasword {length, special_characters}
 
