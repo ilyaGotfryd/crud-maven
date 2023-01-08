@@ -16,10 +16,8 @@ app = FastAPI()
 
 @app.get("/user")
 def create_user() -> User:
-  data = {"username":generate_secret(),
-          "password": generate_secret(is_password = True)}
-  user = User(**data)
   service = Service()
+  user = User(username = generate_secret(), password = generate_secret(is_password = True))
   service.add_user(user)
   return user
 
@@ -31,7 +29,8 @@ we will need `python-multipart` to support parts of FastAPI security framework.
 
 ```python
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends, HTTPException
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 app = FastAPI()
 
@@ -50,7 +49,22 @@ def login(form_data: OAuth2PasswordRequestForm = Depends()):
 ## Securing our quotes
 Now finally let's secure our quotes endpoint
 
+`fast_api/service.py`
+
 ```python
+class Service:
+  ...
+  def user_by_username(self, username: str):
+  user = None
+  if username in db.keys():
+    user = User.parse_raw(db[username])
+  return user
+```
+
+`fast_api/app.py`
+
+```python
+from fastapi import FastAPI, Depends, HTTPException, status
 
 def authorized(token:str = Depends(oauth2_scheme)):
   service = Service()
@@ -66,7 +80,6 @@ def authorized(token:str = Depends(oauth2_scheme)):
 
 @app.get("/quotes/{quote_id}")
 def get_quote_by_id(quote_id: int, user:str = Depends(authorized)) -> Quote:
-  print("  ~~~ get_quote_by_id", quote_id, user)
   quote_dict = get_quote(quote_id)
   
   return Quote(**quote_dict)
