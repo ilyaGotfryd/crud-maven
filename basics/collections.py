@@ -11,6 +11,3 @@
 
 # dictionary
 # dictionary comprehansion
-
-# set
-# set math
