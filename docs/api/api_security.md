@@ -9,8 +9,8 @@ pip install python-multipart
 ```python
 
 from fastapi import FastAPI
-from fast_api.utilities import generate_secret
-from fast_api.service import Service, User
+from api.utilities import generate_secret
+from api.service import Service, User
 
 app = FastAPI()
 
@@ -49,7 +49,7 @@ def login(form_data: OAuth2PasswordRequestForm = Depends()):
 ## Securing our quotes
 Now finally let's secure our quotes endpoint
 
-`fast_api/service.py`
+`api/service.py`
 
 ```python
 class Service:
@@ -61,7 +61,7 @@ class Service:
   return user
 ```
 
-`fast_api/app.py`
+`api/app.py`
 
 ```python
 from fastapi import FastAPI, Depends, HTTPException, status

@@ -26,7 +26,7 @@ This is one of Python's native superpowers. Datamunging for the win!
 # Pydantic [===>](./pydantic/pydantic.md)
 ## Basics, serialization, deserialization
 ## Custom validation
-# Fast API [===>](./fast_api/fast_api.md)
+# Fast API [===>](./api/api.md)
 ## Getting started
 - install FastAPI
 - install uvicorn

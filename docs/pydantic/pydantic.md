@@ -4,9 +4,9 @@ Let's introduce testing into the mix to help us explore this subject with a bett
 Let's start with [Testing Basics with Pytest](../testing/pytest_basics.md).
 Now that we have created a `test/test_service.py` and `test/__init__.py` in our `test` folder in the root and installed `pytest` we can proceed to building things out.
 
-We will be working ander `fast_api` folder in the root as we will be building a service that we will later use in our CRUD app.
+We will be working ander `api` folder in the root as we will be building a service that we will later use in our CRUD app.
 
-Create `fast_api/service.py` and let's go in there and create our user model.
+Create `api/service.py` and let's go in there and create our user model.
 
 ```python
 from pydantic import BaseModel
@@ -19,7 +19,7 @@ Let's mess with the model creation and see what vaslidation we get out of the bo
 
 `test/service.py`
 ```python
-from fast_api.service import User
+from api.service import User
 
 def test_user_creation():
     user = User(username="fail")
@@ -45,7 +45,7 @@ def test_user_json():
 ##Creating User Service
 Let's create user service and store that user in replit own key value store for later use
 
-`fast_api/service.py`
+`api/service.py`
 ```python
 from replit import db
 from pydantic import BaseModel
@@ -82,7 +82,7 @@ Let's introduce some test coverage to make sure that this works.
 
 `test\service.py`
 ```python
-from fast_api import Service, User
+from api import Service, User
 
 def test_add_user_check_pwd():
   service = Service()
@@ -134,7 +134,7 @@ def test_validation_fail():
 Fix remainder of the tests for final result
 `test/test_service.py`
 ```python
-from fast_api.service import Service, User
+from api.service import Service, User
 from pydantic import ValidationError
 import pytest
 
@@ -160,4 +160,4 @@ def test_validation_fail():
 ```
 ---
 
-Next [== Fast API Basics ==>](../fast_api/fast_api.md)
+Next [== Fast API Basics ==>](../api/api.md)
