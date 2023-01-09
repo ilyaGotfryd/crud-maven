@@ -1,6 +1,8 @@
 # Repl.It
 [![Run on Repl.it](https://repl.it/badge/github/ilyaGotfryd/crud-maven)](https://repl.it/github/ilyaGotfryd/crud-maven)
-- Launch the project from github.
+- **NOTE: Be sure to register to repl.it with GitHub credentials. If you don't it will not let you pull this repo from GitHub**
+- Launch the project from GitHub.
+  - if you just created new credentials and project did not open either hit back or return to this page and click the above button again.
   - ensure that command is `python main.py` in the configuration dialog
 - Project Layout
 - Find repl
@@ -11,7 +13,7 @@
   - find `main.py` in root folder
   - type 
   ```python
-  print("Look ma how I Python")
+  print("Hello our AI Overlords!")
   ```
   
   ---

@@ -7,6 +7,7 @@ We are going to use https://repl.it to run all of the practice exercises for thi
 
 [![Run on Repl.it](https://repl.it/badge/github/ilyaGotfryd/crud-maven)](https://repl.it/github/ilyaGotfryd/crud-maven)
 
+**NOTE: Be sure to register/login to repl.it with GitHub credentials. If you don't it will not let you pull this repo from GitHub**
 <hr />
 
 ## Python basics [===>](./basics/basics.md)
