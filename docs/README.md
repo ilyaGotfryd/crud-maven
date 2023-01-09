@@ -7,6 +7,7 @@ We are going to use https://repl.it to run all of the practice exercises for thi
 
 [![Run on Repl.it](https://repl.it/badge/github/ilyaGotfryd/crud-maven)](https://repl.it/github/ilyaGotfryd/crud-maven)
 
+**NOTE: Be sure to register/login to repl.it with GitHub credentials. If you don't it will not let you pull this repo from GitHub**
 <hr />
 
 ## Python basics [===>](./basics/basics.md)
@@ -21,10 +22,12 @@ This is one of Python's native superpowers. Datamunging for the win!
   How are the structured, playing with arguments, dealing with imports, Python scope strikes again. Let's practice some Python Fu.
 ## decorators
   What are they, where they come from, what do the look like on the inside.
+# Testing [===>](./testing/pytest_basics.md)
+  Let's create basic pytest setup to develop our 
 # Pydantic [===>](./pydantic/pydantic.md)
 ## Basics, serialization, deserialization
 ## Custom validation
-# Fast API [===>](./fast_api/fast_api.md)
+# Fast API [===>](./api/api.md)
 ## Getting started
 - install FastAPI
 - install uvicorn

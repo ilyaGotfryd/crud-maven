@@ -30,3 +30,7 @@ Repl.it a web based development environment that is capable of executing your co
   - dictionary comprehansion
 - set
   - set math
+
+---
+
+Next [== Functions ==>](../functions/functions.md)
