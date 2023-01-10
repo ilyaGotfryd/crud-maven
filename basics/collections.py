@@ -10,4 +10,4 @@
 # conditional list comprehension /filtering
 
 # dictionary
-# dictionary comprehansion
+# dictionary comprehension
