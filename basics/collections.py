@@ -6,8 +6,8 @@
 
 # list
 # list splicing test[first:last:step]
-# list comprehansion
-# conditional list comprehansion /filtering
+# list comprehension
+# conditional list comprehension /filtering
 
 # dictionary
-# dictionary comprehansion
+# dictionary comprehension
